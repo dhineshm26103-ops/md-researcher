@@ -518,8 +518,8 @@ const App: React.FC = () => {
           <div className="h-full w-full overflow-y-auto no-scrollbar">
 
             {activeTab === 'chat' && (
-              <div className="h-full max-w-4xl mx-auto p-2 md:p-6 flex flex-col">
-                <div className="flex-1 rounded-2xl overflow-hidden relative border border-white/5" style={{background: 'rgba(255,255,255,0.02)'}}>
+              <div className="h-full w-full max-w-4xl mx-auto p-0 md:p-6 flex flex-col">
+                <div className="flex-1 overflow-hidden relative border-0 md:border border-white/5 md:rounded-2xl" style={{background: 'rgba(255,255,255,0.02)'}}>
                   <ChatInterface 
                     messages={messages} inputValue={inputValue} isTyping={isTyping} onInputChange={setInputValue} 
                     onSendMessage={async () => {

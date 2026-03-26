@@ -81,8 +81,8 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         </div>
       )}
 
-      {/* CARD */}
-      <div className="absolute z-10" style={{width:'300px',top:'44%',left:'50%',transform:'translate(-50%,-50%)'}}>
+      {/* LOGIN CARD - positioned at fingertip touch point */}
+      <div className="absolute z-10" style={{width:'min(300px, 90vw)',top:'44%',left:'50%',transform:'translate(-50%,-50%)'}}>
         <div className="h-px" style={{background:'linear-gradient(90deg,transparent,rgba(14,165,233,0.9),rgba(139,92,246,0.7),transparent)'}}/>
         <div className="px-6 py-5 relative" style={{background:'rgba(4,6,15,0.88)',border:'1px solid rgba(14,165,233,0.25)',borderTop:'none',backdropFilter:'blur(30px)',boxShadow:touched?'0 0 60px rgba(14,165,233,0.5)':'0 0 30px rgba(14,165,233,0.12)',transition:'box-shadow 0.6s ease'}}>
           <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2" style={{borderColor:'rgba(14,165,233,0.7)'}}/>
