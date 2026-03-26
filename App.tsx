@@ -380,8 +380,8 @@ const App: React.FC = () => {
 
       {/* SIDEBAR */}
       <aside 
-        className={`fixed lg:static inset-y-0 left-0 z-[150] w-[85%] max-w-[300px] lg:w-72 transform transition-transform duration-300 ease-in-out flex flex-col sidebar-border ${isMobileDrawerOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} ${!isSidebarOpen && 'lg:hidden'}`}
-        style={{background: 'rgba(13,17,23,0.95)', backdropFilter: 'blur(24px)', position: 'relative', zIndex: 10}}
+        className={`fixed inset-y-0 left-0 z-[150] w-72 transform transition-transform duration-300 ease-in-out flex flex-col sidebar-border ${isMobileDrawerOpen ? 'translate-x-0' : '-translate-x-full'} ${isSidebarOpen ? 'lg:translate-x-0 lg:static' : 'lg:-translate-x-full lg:hidden'}`}
+        style={{background: 'rgba(13,17,23,0.95)', backdropFilter: 'blur(24px)'}}
       >
         {/* Sidebar Header */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-white/5">
