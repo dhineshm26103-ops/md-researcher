@@ -3,8 +3,8 @@ import { GoogleGenAI, Part, Modality, Type } from "@google/genai";
 import { SourceDocument, AppSettings, ContentStructure, ChatMessage, SupportAttachment, SEOAnalysisResult } from "../types";
 
 const getAiClient = async () => {
-   //const apiKey = "AIzaSyD9J6131MazYOJjMlr2Px6bkUYr63jv26E";
-  const apiKey = "AIzaSyAwp5aWZBWQnCJiYCkjQqtZt26FOCGctuU";
+  const apiKey = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_GEMINI_API_KEY) 
+    || "AIzaSyAwp5aWZBWQnCJiYCkjQqtZt26FOCGctuU";
   if (!apiKey) throw new Error("API Key not found");
   return new GoogleGenAI({ apiKey });
 };
