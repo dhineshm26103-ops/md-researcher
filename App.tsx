@@ -87,7 +87,7 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'chat' | 'audio' | 'briefing' | 'seo' | 'profile' | 'video'>('chat');
   
   // Responsive sidebar state
-  const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth > 1024);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(typeof window !== 'undefined' && window.innerWidth > 1024);
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
 
   const [videoEpisodes, setVideoEpisodes] = useState<VideoEpisode[]>([]);
@@ -412,7 +412,7 @@ const App: React.FC = () => {
       </aside>
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 flex flex-col min-w-0 relative h-full">
+      <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden relative h-full" style={{zIndex:1}}>
         
         {/* HEADER */}
         <header className="h-16 flex items-center justify-between px-4 lg:px-6 z-40 sticky top-0 border-b border-white/5" style={{background: 'rgba(13,17,23,0.8)', backdropFilter: 'blur(20px)'}}>
