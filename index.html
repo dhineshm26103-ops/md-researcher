@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MD Researcher" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>MD Researcher | AI Research Lab</title>
+    <!-- Ionic Framework Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
+                200: '#bae6fd',
+                300: '#7dd3fc',
+                400: '#38bdf8',
+                500: '#0ea5e9',
+                600: '#0284c7',
+                700: '#0369a1',
+                800: '#075985',
+                900: '#0c4a6e',
+              },
+              accent: {
+                400: '#a78bfa',
+                500: '#8b5cf6',
+                600: '#7c3aed',
+              },
+              surface: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                300: '#cbd5e1',
+                800: '#1e293b',
+                900: '#0f172a',
+              },
+              dark: {
+                50: '#1a1f2e',
+                100: '#151929',
+                200: '#111520',
+                300: '#0d1117',
+                400: '#090d14',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            boxShadow: {
+              'glass': '0 8px 32px 0 rgba(0,0,0,0.4)',
+              'glow': '0 0 30px rgba(14, 165, 233, 0.25)',
+              'glow-purple': '0 0 30px rgba(139, 92, 246, 0.25)',
+              'inner-glow': 'inset 0 1px 0 rgba(255,255,255,0.08)',
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ion-safe-area-top: env(safe-area-inset-top);
+        --ion-safe-area-bottom: env(safe-area-inset-bottom);
+      }
+
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #0d1117;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      /* Custom Scrollbars */
+      ::-webkit-scrollbar { width: 4px; height: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.1); border-radius: 20px; }
+      ::-webkit-scrollbar-thumb:hover { background-color: rgba(255,255,255,0.2); }
+
+      /* Dark Glass */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      /* Ambient background orbs */
+      #root::before {
+        content: '';
+        position: fixed;
+        top: -20%;
+        left: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+      #root::after {
+        content: '';
+        position: fixed;
+        bottom: -20%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(139,92,246,0.10) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Mobile safe areas */
+      .pb-safe { padding-bottom: calc(env(safe-area-inset-bottom) + 16px); }
+      .pt-safe { padding-top: max(env(safe-area-inset-top), 16px); }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      /* Glow button */
+      .btn-glow {
+        box-shadow: 0 0 20px rgba(14,165,233,0.3), 0 4px 15px rgba(0,0,0,0.3);
+        transition: box-shadow 0.2s ease, transform 0.15s ease;
+      }
+      .btn-glow:hover {
+        box-shadow: 0 0 30px rgba(14,165,233,0.5), 0 4px 20px rgba(0,0,0,0.4);
+        transform: translateY(-1px);
+      }
+
+      /* Nav active indicator */
+      .nav-active {
+        background: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(139,92,246,0.15));
+        border: 1px solid rgba(14,165,233,0.3);
+        box-shadow: 0 0 15px rgba(14,165,233,0.15);
+      }
+
+      /* Sidebar gradient border */
+      .sidebar-border {
+        border-right: 1px solid rgba(255,255,255,0.06);
+      }
+
+      /* Animate in */
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-in { animation: fadeSlideUp 0.3s ease forwards; }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      .animate-float { animation: float 5s ease-in-out infinite; }
+
+      /* Gradient text */
+      .gradient-text {
+        background: linear-gradient(135deg, #38bdf8, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Tab pill */
+      .tab-pill {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 14px;
+        padding: 4px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "uuid": "https://esm.sh/uuid@^13.0.0",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
+    "marked": "https://esm.sh/marked@^15.0.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "pptxgenjs": "https://esm.sh/pptxgenjs@3.12.0",
+    "docx": "https://esm.sh/docx@9.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

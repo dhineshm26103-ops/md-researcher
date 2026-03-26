@@ -1,0 +1,8 @@
+{
+  "name": "Tom NoteBook",
+  "description": "An enterprise-grade research and SEO auditing suite powered by Gemini. Features high-fidelity technical reporting, podcast generation, and deterministic site analysis.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}

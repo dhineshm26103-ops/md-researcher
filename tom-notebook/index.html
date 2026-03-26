@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover" />
+    <title>TomNoteBook | AI Research Lab</title>
+    <!-- Ionic Framework Core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#f0fdfa',
+                100: '#ccfbf1',
+                200: '#99f6e4',
+                300: '#5eead4',
+                400: '#2dd4bf',
+                500: '#14b8a6', // Teal Primary
+                600: '#0d9488',
+                700: '#0f766e',
+                800: '#115e59',
+                900: '#134e4a',
+              },
+              surface: {
+                50: '#f8fafc',
+                100: '#f1f5f9',
+                200: '#e2e8f0',
+                300: '#cbd5e1',
+                800: '#1e293b',
+                900: '#0f172a',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            boxShadow: {
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+              'glow': '0 0 20px rgba(20, 184, 166, 0.3)',
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ion-safe-area-top: env(safe-area-inset-top);
+        --ion-safe-area-bottom: env(safe-area-inset-bottom);
+      }
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #f3f4f6;
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.05) 0px, transparent 50%),
+          radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 0;
+        margin: 0;
+        overflow: hidden; /* App handles scrolling */
+      }
+
+      /* Custom Scrollbars */
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background-color: rgba(148, 163, 184, 0.5); border-radius: 20px; }
+      ::-webkit-scrollbar-thumb:hover { background-color: rgba(100, 116, 139, 0.8); }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Mobile optimizations */
+      .pb-safe {
+        padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
+      }
+      
+      .pt-safe {
+        padding-top: max(env(safe-area-inset-top), 16px);
+      }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      
+      /* Animation Utilities */
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "uuid": "https://esm.sh/uuid@^13.0.0",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0",
+    "marked": "https://esm.sh/marked@^15.0.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "pptxgenjs": "https://esm.sh/pptxgenjs@3.12.0",
+    "docx": "https://esm.sh/docx@9.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
