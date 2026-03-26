@@ -4,7 +4,7 @@ import { SourceDocument, AppSettings, ContentStructure, ChatMessage, SupportAtta
 
 const getAiClient = async () => {
   const apiKey = (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_GEMINI_API_KEY) 
-    || "AIzaSyAwp5aWZBWQnCJiYCkjQqtZt26FOCGctuU";
+    || "AIzaSyCZR8CEZaegkI__sINUUiuvULywErQZoFw";
   if (!apiKey) throw new Error("API Key not found");
   return new GoogleGenAI({ apiKey });
 };
